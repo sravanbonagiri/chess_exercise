@@ -16,8 +16,8 @@ class Chess
         options[:position] = position
       end
 
-      opts.on('--target TARGET', Array, 'List of target positions') do |target|
-        options[:target] = target.map { |v| v.strip }
+      opts.on('--target TARGET', 'Enable target mode') do |target|
+        options[:target] = true if target == "true"
       end
     
     end
@@ -40,3 +40,8 @@ raise "options missing --piece, --position use --help for more information" if o
 if options[:piece] && options[:position]
 	puts ChessExercise.new(options[:piece], options[:position]).possible_moves
 end
+
+if options[:target]
+  puts ChessExercise.new(options[:piece], options[:position], options[:target]).distant_tile
+end
+
