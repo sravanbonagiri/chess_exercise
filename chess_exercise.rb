@@ -10,14 +10,7 @@ class ChessExercise
 
 	def possible_moves
 		if valid_args?
-			positions = [] 
-			PIECE_MOVES[@piece].each { | step |
-			  (1..STEPS[@piece]).each { |steps|
-			    new_x = @x + (step[:x] * steps)
-			    new_y = @y + (step[:y] * steps)
-			    positions << [new_x, new_y] if new_x > 0 && new_x < 9 && new_y > 0 && new_y < 9 
-			  }
-			}
+			positions = get_moves(@x, @y)
 			positions.sort{|a,b| a[1] <=> b[1]}.collect{|position| "#{X_AXIS.key(position.first)}#{position.last}" }.join(", ")
 		end
 	end
