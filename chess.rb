@@ -40,6 +40,3 @@ raise "options missing --piece, --position use --help for more information" if o
 if options[:piece] && options[:position]
 	puts ChessExercise.new(options[:piece], options[:position]).possible_moves
 end
-if options[:target]
-	puts options[:target].inspect
-end

@@ -65,4 +65,8 @@ class ChessExercise
 		end
 		true
 	end
+
+	def max_target_moves
+		#todo: get max targets.
+	end
 end
